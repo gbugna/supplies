@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption
-} from '@chakra-ui/react'
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner, Container } from '@chakra-ui/react'
 
-function Insumos () {
+function Insumos() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -23,21 +14,30 @@ function Insumos () {
         console.log(result)
         setItems(result)
       },
-      (error) => {
-        setIsLoaded(false)
-        setItems(error)
-      }
+        (error) => {
+          setIsLoaded(false)
+          setItems(error)
+        }
       )
   }, [])
 
   if (error) {
     return <div>Error: {error.message}</div>
   } else if (!isLoaded) {
-    return <div>Cargando...</div>
+    return (
+      <Container>
+        <Spinner
+          thickness="2px"
+          speed="0.65s"
+          emptyColor="orange.100"
+          color="orange.300"
+          size="md" />
+      </Container>
+    )
   } else {
     return (
       <>
-        <Table variant='striped' colorScheme='facebook'>
+        <Table bg='grey' size='sm' colorScheme='facebook'>
           <TableCaption placement='top'>Insumos</TableCaption>
           <Thead>
             <Tr>
@@ -50,8 +50,8 @@ function Insumos () {
             {items.map(item => (
               <Tr key={item.id}>
                 <Td>{item.nombre}</Td>
-                <Td>{item.fabricante}</Td>
-                <Td>{item.equipo}</Td>
+                <Td>{item.nombre}</Td>
+                <Td>{item.modelo}</Td>
               </Tr>
             ))}
           </Tbody>

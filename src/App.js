@@ -1,11 +1,14 @@
 import Insumos from './components/Insumos'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Container } from '@chakra-ui/react'
 
-function App () {
+function App() {
   return (
 
     <ChakraProvider>
-      <Insumos />
+      <Container>
+        <Insumos />
+      </Container>
+
     </ChakraProvider>
 
   )
