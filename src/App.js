@@ -1,13 +1,19 @@
 import Insumos from './components/Insumos'
-import { ChakraProvider, Container } from '@chakra-ui/react'
+import { Center, ChakraProvider, Container, Flex, extendTheme } from '@chakra-ui/react'
+import Navbar from './components/NavBar'
+import theme from './theme'
+
+const initTheme = extendTheme({ theme });
 
 function App() {
   return (
 
-    <ChakraProvider>
-      <Container>
+    <ChakraProvider theme={initTheme}>
+
+      <Flex direction='column'>
+        <Navbar />
         <Insumos />
-      </Container>
+      </Flex>
 
     </ChakraProvider>
 
