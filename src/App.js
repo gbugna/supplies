@@ -8,14 +8,13 @@ const initTheme = extendTheme({ theme });
 function App() {
   return (
 
-    <ChakraProvider theme={initTheme}>
 
-      <Flex direction='column'>
-        <Navbar />
-        <Insumos />
-      </Flex>
 
-    </ChakraProvider>
+    <Flex direction='column'>
+      <Navbar />
+      <Insumos />
+    </Flex>
+
 
   )
 }
