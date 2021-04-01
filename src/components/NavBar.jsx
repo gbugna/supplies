@@ -1,5 +1,7 @@
 import React from 'react'
 import { Box, Heading, Flex, Link, useColorMode, IconButton, Button } from '@chakra-ui/react'
+import { Link as ReachLink } from "react-router-dom";
+
 
 const MenuItems = ({ children }) => (
     <Link mt={{ base: 4, md: 0 }} mr={6} display='block'>
@@ -35,6 +37,7 @@ const Navbar = props => {
                 flexGrow={1}
                 color={colorMode === 'light' ? 'orange.300' : 'white'}
             >
+
                 <MenuItems>Stock</MenuItems>
                 <MenuItems>Modelos</MenuItems>
                 <MenuItems>Fabricantes</MenuItems>

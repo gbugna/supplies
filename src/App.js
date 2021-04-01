@@ -1,21 +1,18 @@
 import Insumos from './components/Insumos'
 import { Center, ChakraProvider, Container, Flex, extendTheme } from '@chakra-ui/react'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar from './components/NavBar'
-import theme from './theme'
+import Stock from './components/Stock'
 
-const initTheme = extendTheme({ theme });
+
+
 
 function App() {
   return (
-
-
-
     <Flex direction='column'>
       <Navbar />
-      <Insumos />
+      <Stock />
     </Flex>
-
-
   )
 }
 
