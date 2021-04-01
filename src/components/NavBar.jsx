@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Heading, Flex, Link, useColorMode, IconButton, Button } from '@chakra-ui/react'
-import { Link as ReachLink } from "react-router-dom";
-
+import { Link as ReachLink } from 'react-router-dom'
 
 const MenuItems = ({ children }) => (
     <Link mt={{ base: 4, md: 0 }} mr={6} display='block'>
@@ -20,7 +19,7 @@ const Navbar = props => {
             wrap='wrap'
             padding='1.5rem'
             bg={colorMode === 'light' ? 'gray.900' : 'orange.500'}
-            color={colorMode === 'light' ? 'orange.300' : 'gray.100'}
+            color={colorMode === 'light' ? 'orange.400' : 'gray.100'}
             borderBottom='1px solid black'
             {...props}
         >
@@ -35,13 +34,20 @@ const Navbar = props => {
                 width='auto'
                 alignItems='center'
                 flexGrow={1}
-                color={colorMode === 'light' ? 'orange.300' : 'white'}
+                color={colorMode === 'light' ? 'orange.400' : 'white'}
             >
-
-                <MenuItems>Stock</MenuItems>
-                <MenuItems>Modelos</MenuItems>
-                <MenuItems>Fabricantes</MenuItems>
-                <MenuItems>Equipos</MenuItems>
+                <Link as={ReachLink} to='/stock'>
+                    <MenuItems>Stock</MenuItems>
+                </Link>
+                <Link as={ReachLink} to='/insumos'>
+                    <MenuItems>Modelos</MenuItems>
+                </Link>
+                <Link as={ReachLink} to='/fabricantes'>
+                    <MenuItems>Fabricantes</MenuItems>
+                </Link>
+                <Link as={ReachLink} to='/equipos'>
+                    <MenuItems>Equipos</MenuItems>
+                </Link>
 
             </Box>
             <Box

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner, Container, Flex } from '@chakra-ui/react'
 
-function Insumos () {
+function Insumos() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -14,10 +14,10 @@ function Insumos () {
         console.log(result)
         setItems(result)
       },
-      (error) => {
-        setIsLoaded(false)
-        setItems(error)
-      }
+        (error) => {
+          setIsLoaded(false)
+          setItems(error)
+        }
       )
   }, [])
 
@@ -40,7 +40,7 @@ function Insumos () {
     return (
 
       <Container maxW='container.md'>
-        <Table bg='grey' size='sm' colorScheme='facebook'>
+        <Table size='sm' colorScheme='facebook'>
           <TableCaption placement='top'>Insumos</TableCaption>
           <Thead>
             <Tr>

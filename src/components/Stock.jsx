@@ -6,12 +6,18 @@ function Stock() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
 
+  const options = Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    day: "numeric",
+    month: "numeric"
+  }
+
+
   useEffect(() => {
     fetch('http://127.0.0.1:4000/App-insumos/stock')
       .then(res => res.json())
       .then(result => {
         setIsLoaded(true)
-        console.log(result)
         setItems(result)
       },
         (error) => {
@@ -51,11 +57,12 @@ function Stock() {
             </Tr>
           </Thead>
           <Tbody>
-            {items.map(item => (
+            {items.map(item =>
+            (
               <Tr key={item.id}>
                 <Td>{item.modelo}</Td>
                 <Td>{item.estado}</Td>
-                <Td>{item.fecha}</Td>
+                <Td>{new Date(item.fecha).toLocaleString("es-AR", options)}</Td>
                 <Td>{item.sector}</Td>
               </Tr>
             ))}
