@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner, Container, Flex } from '@chakra-ui/react'
-
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner, Container, Flex, IconButton } from '@chakra-ui/react'
+import { FaPen } from 'react-icons/fa'
 function Insumos() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -55,6 +55,7 @@ function Insumos() {
                 <Td>{item.modelo}</Td>
                 <Td>{item.marca}</Td>
                 <Td>{item.equipo}</Td>
+                <Td><IconButton icon={<FaPen />} size="sm"></IconButton></Td>
               </Tr>
             ))}
           </Tbody>

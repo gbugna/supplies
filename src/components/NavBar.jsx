@@ -1,6 +1,8 @@
 import React from 'react'
-import { Box, Heading, Flex, Link, useColorMode, IconButton, Button } from '@chakra-ui/react'
+import { Box, Heading, Flex, Link, useColorMode, IconButton } from '@chakra-ui/react'
 import { Link as ReachLink } from 'react-router-dom'
+import { FaSun, FaMoon } from 'react-icons/fa'
+
 
 const MenuItems = ({ children }) => (
     <Link mt={{ base: 4, md: 0 }} mr={6} display='block'>
@@ -50,15 +52,17 @@ const Navbar = props => {
                 </Link>
 
             </Box>
-            <Box
-                display='block'
-                mt={{ base: 4, md: 0 }}
-            >
-                <Button onClick={toggleColorMode}>
-                    Modo {colorMode === 'light' ? 'Oscuro' : 'Claro'}
-                </Button>
 
-            </Box>
+
+            <IconButton
+                icon={colorMode === 'dark' ? <FaSun /> : <FaMoon />}
+                isRound='true'
+                size='sm'
+                alignSelf='flex-end'
+                onClick={toggleColorMode}
+            />
+
+
         </Flex>
     )
 }

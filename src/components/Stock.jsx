@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner, Container, Flex } from '@chakra-ui/react'
-
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, Spinner, Container, Flex, VStack, IconButton } from '@chakra-ui/react'
+import { FaPen } from 'react-icons/fa'
 function Stock() {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
@@ -31,8 +31,7 @@ function Stock() {
     return <div>Error: {error.message}</div>
   } else if (!isLoaded) {
     return (
-
-      <Flex color='white'>
+      <VStack justifyContent="center" alignItems="center">
         <Spinner
           thickness='2px'
           speed='0.65s'
@@ -40,7 +39,7 @@ function Stock() {
           color='orange.300'
           size='md'
         />
-      </Flex>
+      </VStack>
     )
   } else {
     return (
@@ -54,6 +53,7 @@ function Stock() {
               <Th>Estado</Th>
               <Th>Fecha</Th>
               <Th>Sector</Th>
+              <Th>Accion</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -64,6 +64,7 @@ function Stock() {
                 <Td>{item.estado}</Td>
                 <Td>{new Date(item.fecha).toLocaleString("es-AR", options)}</Td>
                 <Td>{item.sector}</Td>
+                <Td><IconButton icon={<FaPen />} size="sm"></IconButton></Td>
               </Tr>
             ))}
           </Tbody>
