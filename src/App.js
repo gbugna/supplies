@@ -5,7 +5,7 @@ import Navbar from './components/NavBar'
 import Insumos from './components/Insumos'
 import Stock from './components/Stock'
 
-function App() {
+function App () {
   return (
     <Flex direction='column'>
       <Router>
@@ -17,7 +17,6 @@ function App() {
           <Route exact path='/' />
         </Switch>
       </Router>
-
 
     </Flex>
   )
